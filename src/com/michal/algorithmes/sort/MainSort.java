@@ -14,6 +14,23 @@ public class MainSort {
         }
     }
 
+    public static void printArray(int[] arrayToPrint) {
+
+        for(int i = 0; i < arrayToPrint.length - 1; i++) {
+
+            System.out.print(arrayToPrint[i] + " ");
+        }
+        System.out.println("");
+    }
+
+    public static void switchValues(int indexOne, int indexTwo){
+
+        int temp = myArray[indexOne];
+        myArray[indexOne] = myArray[indexTwo];
+        myArray[indexTwo] = temp;
+
+    }
+
     public static void bubbleSort(int[] randomArray) {
 
         int temp;
@@ -55,27 +72,59 @@ public class MainSort {
                 minIndex = maxIndex + 2;
             }
         }
-
-
     }
 
+    public static void selectionSort() {
 
+        for(int i = 0; i < myArray.length; i++) {
 
-    public static void printArray(int[] arrayToPrint) {
+            int minValue = i;
 
-        for(int i = 0; i < arrayToPrint.length; i++) {
+            for(int j = i; j < myArraySize; j++) {
 
-            System.out.print(arrayToPrint[i] + " ");
+                if(myArray[minValue] > myArray[j]) {
+
+                    minValue = j;
+                }
+            }
+
+            switchValues(i, minValue);
         }
-        System.out.println("");
     }
+
+    public static void insertionSort() {
+
+        for(int i = 1; i < myArraySize; i++) {
+
+            int j = i;
+            int toReplace = myArray[i];
+
+            while ((j > 0) && myArray[j-1] > toReplace) {
+                myArray[j] = myArray[j-1];
+                j--;
+            }
+            myArray[j] = toReplace;
+
+        }
+    }
+
 
     public static void main(String[] main) {
 
         createRandomNumbersArray();
         printArray(myArray);
+        /*
         bubbleSort(myArray);
         binarySearch(14);
+        */
+        /*
+        selectionSort();
+        printArray(myArray);
+        */
+
+        insertionSort();
+        printArray(myArray);
+
 
     }
 }
