@@ -74,38 +74,36 @@ public class MainSort {
         }
     }
 
-    public static void selectionSort() {
+    public static void insertionSort()
+    {
+        int i,j; /* counters */
+        int min; /* index of minimum */
 
-        for(int i = 0; i < myArray.length; i++) {
+        for(i = 1; i < myArraySize; i++) {
 
-            int minValue = i;
-
-            for(int j = i; j < myArraySize; j++) {
-
-                if(myArray[minValue] > myArray[j]) {
-
-                    minValue = j;
-                }
+            j = i;
+            while((j > 0) && (myArray[j]) < myArray[j - 1]) {
+                switchValues(j, j-1);
+                j = j-1;
             }
-
-            switchValues(i, minValue);
         }
     }
 
-    public static void insertionSort() {
 
-        for(int i = 1; i < myArraySize; i++) {
 
-            int j = i;
-            int toReplace = myArray[i];
+    public static void selectionSort() {
 
-            while ((j > 0) && myArray[j-1] > toReplace) {
-                myArray[j] = myArray[j-1];
-                j--;
-            }
-            myArray[j] = toReplace;
+        int i, j; /* counters */
+        int min; /* minimum index */
+
+        for(i = 0; i < myArraySize; i++) {
+            min = i;
+            for(j = i; j < myArraySize; j++)
+                if(myArray[j] < myArray[min]) min = j;
+                switchValues(i, min);
 
         }
+
     }
 
 
@@ -121,9 +119,12 @@ public class MainSort {
         selectionSort();
         printArray(myArray);
         */
-
+        /*
         insertionSort();
         printArray(myArray);
+        */
+
+
 
 
     }
