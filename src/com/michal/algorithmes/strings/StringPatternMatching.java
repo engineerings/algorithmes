@@ -9,7 +9,7 @@ public class StringPatternMatching {
 
     /**
      *
-     * @param pattern a to find in text
+     * @param pattern to find in text
      * @param text an article or web page
      * @return should return string found or not found
      */
